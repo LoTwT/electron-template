@@ -1,14 +1,15 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('path');
+declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 
-const preload = path.resolve(__dirname, "../preload/preload")
-const html = path.resolve(__dirname, "../web/index.html")
+import { app, BrowserWindow } from 'electron';
+import path from "path"
+
+const preload = path.resolve(__dirname, "../main/preload.js")
 
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-const createWindow = () => {
+const createWindow = (): void => {
     const mainWindow = new BrowserWindow({
         width: 1920,
         height: 1080,
@@ -17,7 +18,7 @@ const createWindow = () => {
         }
     });
 
-    mainWindow.loadFile(html);
+    mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
     mainWindow.webContents.openDevTools();
 };
 

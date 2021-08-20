@@ -1,3 +1,5 @@
-# electron-js
+# electron-ts
 
-基于 [electron forge](https://www.electronforge.io/) 的个人 electron-js 模板
+基于 `electron forge` 的个人 electron-ts 模板
+
+切到 electron-js 分支获得 js 版本 :smile:
